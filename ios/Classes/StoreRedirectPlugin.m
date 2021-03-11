@@ -18,10 +18,16 @@
                                        details:nil]);
         } else {
             NSString* iTunesLink;
-            if([[[UIDevice currentDevice] systemVersion] floatValue] >= 11) {
-                iTunesLink = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/xy/app/foo/id%@", appId];
+
+            // change url to beta if is_ios_beta
+            if ([call.arguments[@"is_ios_beta"] boolValue]) {
+                iTunesLink = [NSString stringWithFormat:@"itms-beta://beta.itunes.apple.com/v1/app/id%@", appId];
             } else {
-                iTunesLink = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appId];
+                if([[[UIDevice currentDevice] systemVersion] floatValue] >= 11) {
+                    iTunesLink = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/xy/app/foo/id%@", appId];
+                } else {
+                    iTunesLink = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appId];
+                }
             }
             
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
