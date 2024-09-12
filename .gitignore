@@ -7,3 +7,9 @@ build/
 ios/.generated/
 packages
 pubspec.lock
+example/.dart_tool/package_config.json
+example/.dart_tool/package_config_subset
+example/.dart_tool/version
+example/.flutter-plugins-dependencies
+example/ios/Flutter/flutter_export_environment.sh
+example/ios/Podfile
