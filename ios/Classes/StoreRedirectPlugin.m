@@ -23,7 +23,8 @@
             } else {
                 iTunesLink = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appId];
             }
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink] options:@{} completionHandler:^(BOOL success) {
+            if (@available(iOS 10, *)) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink] options:@{} completionHandler:^(BOOL success) {
                     if (success) {
                         result(nil);
                     } else {
@@ -32,7 +33,10 @@
                                                    details:nil]);
                     }
                 }
-            ];
+                ];
+            } else {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+            }
         }
     } else {
         result(FlutterMethodNotImplemented);
