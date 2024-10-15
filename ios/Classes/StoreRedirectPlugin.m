@@ -23,10 +23,16 @@
             } else {
                 iTunesLink = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=%@", appId];
             }
-            
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
-            
-            result(nil);
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink] options:@{} completionHandler:^(BOOL success) {
+                    if (success) {
+                        result(nil);
+                    } else {
+                        result([FlutterError errorWithCode:@"ERROR"
+                                                   message:@"Link was not opened"
+                                                   details:nil]);
+                    }
+                }
+            ];
         }
     } else {
         result(FlutterMethodNotImplemented);
