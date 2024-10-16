@@ -1,27 +1,35 @@
+## 2.0.3
+
+* Updated Android compileSdkVersion to 34 (thanks to @rvermaSurecost)
+* Fixed openURL() issue on iOS (thanks to @AurelVU)
+* Updated Android example app to compile with Gradle 7.2
+* Updated iOS exampel app to compile with Xcode 15.2
+* Updated working application IDs in example app (thanks to @ewertonrp)
+
 ## 2.0.2
 
 * Added support for Gradle 8.2
 
 ## 2.0.1
 
-* Migration to MavenCentral
+* Migrated to MavenCentral
 * Small improvements
 
 ## 2.0.0
 
-* Add null-safety
+* Added null-safety
 
 ## 1.0.2
 
-* Update Android compileSdkVersion to 28
+* Updated Android compileSdkVersion to 28
 
 ## 1.0.1
 
-* Add iOS support
+* Added iOS support
 
 ## 0.2.0
 
-* Make the package Id optional.
+* Made the package Id optional.
 
 ## 0.1.0
 
