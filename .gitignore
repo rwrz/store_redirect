@@ -7,3 +7,6 @@ build/
 ios/.generated/
 packages
 pubspec.lock
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
